@@ -1,0 +1,5 @@
+feat: initial Astro AI landing page for Midnight Digital
+
+- Navbar, Hero (neural network canvas), Stats, Services
+- AIProducts, HireDevs, WhyUs, Testimonials, CTA, Footer
+- Dark theme with orange accents, Montserrat font, responsive design
