@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import Services from '../components/Services.astro';
+import AIProducts from '../components/AIProducts.astro';
+import HireDevs from '../components/HireDevs.astro';
+import WhyUs from '../components/WhyUs.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout
+  title="Midnight Digital — AI Solutions, Products & Developers"
+  description="Midnight Digital builds intelligent AI solutions, develops AI products for clients, and provides elite AI developers on rent. Your end-to-end AI partner."
+>
+  <Navbar />
+  <main>
+    <Hero />
+    <Stats />
+    <Services />
+    <AIProducts />
+    <HireDevs />
+    <WhyUs />
+    <Testimonials />
+    <CTA />
+  </main>
+  <Footer />
+</Layout>
+
+<style is:global>
+  /* Scroll-triggered reveal animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+
+<script>
+  // Intersection Observer for scroll reveals
+  const revealEls = document.querySelectorAll(
+    '.glass-card, .stat-card, .service-card, .product-card, .why-card, .testi-card, .why-us__header, .services__header, .ai-products__header, .hire-devs__info, .hire-devs__right, .cta-left, .cta-form-card'
+  );
+
+  revealEls.forEach(el => el.classList.add('reveal'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => observer.observe(el));
+</script>

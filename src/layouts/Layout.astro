@@ -1,0 +1,28 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Midnight Digital — AI Solutions & Products',
+  description = 'Midnight Digital builds intelligent AI solutions, develops cutting-edge AI products for clients, and provides elite AI developers on rent.',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://themidnight.in/" />
+    <meta name="theme-color" content="#F79620" />
+    <link rel="icon" type="image/svg+xml" href="https://themidnight.in/media/images/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

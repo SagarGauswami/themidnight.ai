@@ -1,0 +1,126 @@
+---
+const testimonials = [
+  {
+    quote: "Midnight Digital built our AI-powered recommendation engine from scratch. The impact was immediate — 40% increase in user engagement within the first month.",
+    name: "Rahul Verma",
+    role: "CTO, FinTech Startup",
+    initials: "RV"
+  },
+  {
+    quote: "We hired two AI developers through them for a 3-month project. They integrated seamlessly with our team and delivered an NLP pipeline that exceeded all expectations.",
+    name: "Priya Menon",
+    role: "Head of Product, SaaS Company",
+    initials: "PM"
+  },
+  {
+    quote: "Their AI chatbot solution for our e-learning platform handled 10x the expected load on day one. Professional, reliable, and truly AI-first in their thinking.",
+    name: "Arjun Sharma",
+    role: "Founder, EdTech Platform",
+    initials: "AS"
+  }
+];
+---
+
+<section class="testimonials section" id="testimonials">
+  <div class="container">
+    <div class="testimonials__header">
+      <div class="section-label">Client Stories</div>
+      <h2>Trusted by Forward-<span class="gradient-text">Thinking Teams</span></h2>
+    </div>
+
+    <div class="testimonials__grid">
+      {testimonials.map(t => (
+        <div class="testi-card glass-card">
+          <div class="testi-quote-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="rgba(247,150,32,0.25)"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V19c0 1 0 2 2 2zm14 0c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 2 2 2z"/></svg>
+          </div>
+          <p class="testi-text">"{t.quote}"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">{t.initials}</div>
+            <div>
+              <strong class="testi-name">{t.name}</strong>
+              <span class="testi-role">{t.role}</span>
+            </div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.testimonials__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.testimonials__header .section-label { justify-content: center; }
+.testimonials__header h2 { margin-top: 8px; }
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testi-card {
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.testi-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-orange), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.testi-card:hover::after { opacity: 1; }
+
+.testi-quote-icon { opacity: 0.6; }
+.testi-text {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+  flex: 1;
+  font-style: italic;
+}
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testi-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-orange), #d47d10);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #000;
+  flex-shrink: 0;
+}
+.testi-name {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+.testi-role {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+.testi-stars {
+  font-size: 0.85rem;
+  color: var(--color-orange);
+  letter-spacing: 2px;
+}
+
+@media (max-width: 900px) {
+  .testimonials__grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+}
+</style>

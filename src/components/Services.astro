@@ -1,0 +1,161 @@
+---
+const services = [
+  {
+    icon: `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F79620" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+    title: 'AI Solutions',
+    desc: 'Custom end-to-end AI/ML solutions tailored to your business — from intelligent automation and NLP to computer vision and predictive analytics.',
+    tags: ['Machine Learning', 'NLP', 'Computer Vision', 'Predictive Analytics'],
+    href: '#contact'
+  },
+  {
+    icon: `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F79620" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M8 21h8M12 17v4"/></svg>`,
+    title: 'AI Product Development',
+    desc: 'We build AI-first digital products from scratch — SaaS platforms, intelligent apps, and enterprise tools powered by cutting-edge AI technology.',
+    tags: ['SaaS Platforms', 'LLM Integration', 'AI APIs', 'Enterprise Tools'],
+    href: '#ai-products'
+  },
+  {
+    icon: `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F79620" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><circle cx="20" cy="8" r="2"/><path d="M22 13c-1 0-2.2.4-3 1.2"/></svg>`,
+    title: 'AI Developers on Rent',
+    desc: 'Scale your team instantly with vetted, senior AI engineers. Flexible engagement models — hourly, monthly, or project-based. NDA-backed confidentiality.',
+    tags: ['Flexible Hiring', 'ML Engineers', 'NDA-Backed', 'Immediate Start'],
+    href: '#hire-devs'
+  }
+];
+---
+
+<section class="services section" id="services">
+  <div class="container">
+    <div class="services__header">
+      <div class="section-label">What We Do</div>
+      <h2>Three Pillars of <span class="gradient-text">AI Excellence</span></h2>
+      <p class="services__sub">
+        From building intelligent systems to scaling your team with world-class AI talent —
+        we are your end-to-end AI partner.
+      </p>
+    </div>
+
+    <div class="services__grid">
+      {services.map((s, i) => (
+        <div class={`service-card glass-card ${i === 1 ? 'service-card--featured' : ''}`}>
+          {i === 1 && <div class="featured-badge">Most Popular</div>}
+          <div class="service-card__icon" set:html={s.icon}></div>
+          <h3 class="service-card__title">{s.title}</h3>
+          <p class="service-card__desc">{s.desc}</p>
+          <div class="service-card__tags">
+            {s.tags.map(tag => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+          <a href={s.href} class="service-card__cta">
+            Learn More
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.services__header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 64px;
+}
+.services__header .section-label { justify-content: center; }
+.services__header h2 { margin-bottom: 16px; }
+.services__sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  padding: 40px 32px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.service-card--featured {
+  border-color: rgba(247,150,32,0.4);
+  background: rgba(247,150,32,0.04);
+  box-shadow: 0 0 40px rgba(247,150,32,0.12);
+}
+.featured-badge {
+  position: absolute;
+  top: -1px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-orange);
+  color: #000;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: 0 0 10px 10px;
+}
+.service-card__icon {
+  margin-bottom: 24px;
+  width: 64px; height: 64px;
+  background: rgba(247,150,32,0.08);
+  border: 1px solid rgba(247,150,32,0.2);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+}
+.service-card:hover .service-card__icon {
+  background: rgba(247,150,32,0.14);
+  box-shadow: 0 0 20px rgba(247,150,32,0.2);
+}
+.service-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 14px;
+}
+.service-card__desc {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+  margin-bottom: 24px;
+  flex: 1;
+}
+.service-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(247,150,32,0.08);
+  border: 1px solid rgba(247,150,32,0.2);
+  color: rgba(247,150,32,0.85);
+}
+.service-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-orange);
+  transition: gap 0.3s;
+}
+.service-card__cta:hover { gap: 10px; }
+
+@media (max-width: 900px) {
+  .services__grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+}
+</style>

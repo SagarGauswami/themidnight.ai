@@ -1,0 +1,159 @@
+---
+const products = [
+  {
+    emoji: '🤖',
+    title: 'Conversational AI',
+    desc: 'Intelligent chatbots and virtual assistants powered by GPT-4 and custom LLMs for customer support, sales, and internal ops.',
+    tag: 'LLM / ChatBot'
+  },
+  {
+    emoji: '👁️',
+    title: 'Computer Vision',
+    desc: 'Image recognition, object detection, and visual quality control systems for manufacturing, retail, and security industries.',
+    tag: 'CV / Deep Learning'
+  },
+  {
+    emoji: '📊',
+    title: 'Predictive Analytics',
+    desc: 'AI models that forecast demand, detect anomalies, and surface actionable business intelligence from your data.',
+    tag: 'ML / Data Science'
+  },
+  {
+    emoji: '📄',
+    title: 'Document Intelligence',
+    desc: 'Automated extraction, classification, and analysis of documents using OCR and NLP — eliminating manual data entry.',
+    tag: 'NLP / OCR'
+  },
+  {
+    emoji: '🔒',
+    title: 'AI Security Systems',
+    desc: 'Fraud detection, threat modeling, and behavioral AI that protects your digital assets in real time.',
+    tag: 'AI Security'
+  },
+  {
+    emoji: '⚙️',
+    title: 'AI Automation',
+    desc: 'Intelligent process automation that learns, adapts, and continuously optimizes your business workflows.',
+    tag: 'RPA / AI Ops'
+  }
+];
+---
+
+<section class="ai-products section" id="ai-products">
+  <div class="container">
+    <div class="ai-products__header">
+      <div class="section-label">AI Products</div>
+      <h2>Products We Build <span class="gradient-text">for Your World</span></h2>
+      <p class="ai-products__sub">
+        We specialise in developing robust, scalable AI products across industries.
+        Every product is built from first principles with production-grade reliability.
+      </p>
+    </div>
+
+    <div class="products-grid">
+      {products.map(p => (
+        <div class="product-card glass-card">
+          <div class="product-emoji">{p.emoji}</div>
+          <div class="product-tag">{p.tag}</div>
+          <h3 class="product-title">{p.title}</h3>
+          <p class="product-desc">{p.desc}</p>
+          <div class="product-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F79620" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="ai-products__cta">
+      <a href="#contact" class="btn-primary">Discuss Your AI Product Idea →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.ai-products {
+  background: linear-gradient(180deg, transparent 0%, rgba(247,150,32,0.02) 50%, transparent 100%);
+}
+.ai-products__header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 64px;
+}
+.ai-products__header .section-label { justify-content: center; }
+.ai-products__header h2 { margin-bottom: 16px; }
+.ai-products__sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.product-card {
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-orange), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.product-card:hover::before { opacity: 1; }
+
+.product-emoji {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  display: block;
+}
+.product-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+.product-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--color-white);
+}
+.product-desc {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.product-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.3s;
+}
+.product-card:hover .product-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ai-products__cta {
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .products-grid { grid-template-columns: 1fr; }
+}
+</style>

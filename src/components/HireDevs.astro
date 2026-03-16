@@ -1,0 +1,236 @@
+---
+const steps = [
+  { num: '01', title: 'Share Your Requirements', desc: 'Tell us your tech stack, project scope, and timeline. We\'ll understand your exact needs.' },
+  { num: '02', title: 'We Match Your Team', desc: 'Within 48 hours, we shortlist vetted AI developers that perfectly match your requirements.' },
+  { num: '03', title: 'Interview & Onboard', desc: 'Interview the candidates, sign NDAs, and onboard your dedicated AI developer seamlessly.' },
+  { num: '04', title: 'Ship & Iterate', desc: 'Your AI developer integrates with your team, ships code, and iterates at startup speed.' },
+];
+
+const techStack = [
+  'Python', 'TensorFlow', 'PyTorch', 'LangChain', 'OpenAI API',
+  'HuggingFace', 'FastAPI', 'Docker', 'Kubernetes', 'AWS Bedrock',
+  'Pinecone', 'LlamaIndex', 'Scikit-learn', 'Pandas', 'Spark'
+];
+---
+
+<section class="hire-devs section" id="hire-devs">
+  <div class="container">
+    <div class="hire-devs__layout">
+      <!-- Left: Info -->
+      <div class="hire-devs__info">
+        <div class="section-label">AI Developers on Rent</div>
+        <h2>Top-Tier AI Talent,<br /><span class="gradient-text">When You Need It</span></h2>
+        <div class="glow-divider"></div>
+        <p class="hire-devs__desc">
+          Skip the 6-month hiring cycle. Get access to battle-tested senior AI/ML engineers
+          who can plug into your team and start building immediately.
+        </p>
+
+        <div class="hire-devs__perks">
+          <div class="perk">
+            <div class="perk-icon">⚡</div>
+            <div>
+              <strong>Rapid Deployment</strong>
+              <p>Developer ready within 48 hours of your brief</p>
+            </div>
+          </div>
+          <div class="perk">
+            <div class="perk-icon">🔒</div>
+            <div>
+              <strong>NDA-Backed Confidentiality</strong>
+              <p>Your IP and source code are always protected</p>
+            </div>
+          </div>
+          <div class="perk">
+            <div class="perk-icon">🔄</div>
+            <div>
+              <strong>Flexible Engagement</strong>
+              <p>Hourly, monthly, or project-based — your choice</p>
+            </div>
+          </div>
+          <div class="perk">
+            <div class="perk-icon">🏆</div>
+            <div>
+              <strong>Senior-Level Only</strong>
+              <p>All developers are vetted with 4+ years of AI experience</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn-primary" style="margin-top:32px;">
+          Hire an AI Developer
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Right: Process + Tech -->
+      <div class="hire-devs__right">
+        <div class="process-card glass-card">
+          <div class="process-header">
+            <h4>Our Simple 4-Step Process</h4>
+          </div>
+          <div class="process-steps">
+            {steps.map(s => (
+              <div class="process-step">
+                <div class="step-num">{s.num}</div>
+                <div class="step-content">
+                  <strong>{s.title}</strong>
+                  <p>{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="tech-stack-card glass-card">
+          <div class="tech-header">Tech Stack We Cover</div>
+          <div class="tech-tags">
+            {techStack.map(t => (
+              <span class="tech-tag">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hire-devs {
+  background: linear-gradient(135deg, rgba(247,150,32,0.03) 0%, transparent 50%);
+}
+.hire-devs__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.hire-devs__desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+.hire-devs__perks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.perk {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.perk-icon {
+  font-size: 1.4rem;
+  width: 42px; height: 42px;
+  background: rgba(247,150,32,0.08);
+  border: 1px solid rgba(247,150,32,0.2);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.perk strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 3px;
+}
+.perk p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+
+/* Right side */
+.hire-devs__right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.process-card, .tech-stack-card {
+  border-radius: var(--radius-md);
+}
+.process-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+.process-header h4 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-orange);
+  letter-spacing: 0.06em;
+}
+.process-steps {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.process-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.step-num {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-orange);
+  background: rgba(247,150,32,0.1);
+  border: 1px solid rgba(247,150,32,0.25);
+  border-radius: 6px;
+  padding: 4px 8px;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+.step-content strong {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 3px;
+}
+.step-content p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+
+.tech-stack-card {
+  padding: 20px 24px;
+}
+.tech-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+}
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tech-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  color: rgba(255,255,255,0.65);
+  transition: var(--transition);
+}
+.tech-tag:hover {
+  border-color: rgba(247,150,32,0.4);
+  color: var(--color-orange);
+  background: rgba(247,150,32,0.06);
+}
+
+@media (max-width: 900px) {
+  .hire-devs__layout { grid-template-columns: 1fr; gap: 40px; }
+}
+</style>
